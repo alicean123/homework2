@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset="UTF-8">
+        <title>丽莎 家乡</title>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+    <style>
+        #map {position: absolute; top: 0; bottom: 0; left :0; right:0;}
+        #map {
+        height:100%;
+        width:100%;
+        }
+    </style>
+    </head>
+    <body>
+        <h1>丽莎 家乡</h1>
+        <div id="map"></div>
+        <script>
+        var map = L.map('map').setView([55.751244, 37.618423],12);
+    
+        L.tileLayer('https://api.maptiler.com/maps/topographique/{z}/{x}/{y}.png?key=3TDIKyNGzWtr9NVXXy4Y',{
+        attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
+        }).addTo(map);
+    
+    
+	
+        var marker = L.marker([55.751244, 37.618423])
+        .addTo(map)
+        .bindPopup(
+            '<h1><a href ="https://baike.sogou.com/v104511.htm?fromTitle=%E8%8E%AB%E6%96%AF%E7%A7%91">俄罗斯 莫斯科</a></h1><br/><b>俄罗斯 莫斯科</b><br/><div><img style="width:100%" src="https://mos-holidays.ru/wp-content/uploads/2021/03/30-glavnyh-dostoprimechatelnostey-moskvy-za-1-den-glavnaya.jpg" alt="俄罗斯 莫斯科"/></div>'
+        )
+        .openPopup();
+    
+        var circle = L.circle([55.751244, 37.618423],{
+        color: 'yellow',
+        fillColor: 'yellow',
+        fillOpacity: 0.3,
+        radius: 1000
+        }).addTo(map);
+    
+    
+        L.control.scale({
+        metric : true,
+        imperial : false,
+        position: 'bottomleft'
+        }).addTo(map);
+            </script>
+    </body>
+</html>
